@@ -65,8 +65,8 @@ namespace itertools
     template <typename T1,typename T2>
     ostream &operator<<(ostream &os, const std::pair<T1,T2> &c) 
     {
-      
-        return os;
+      os="";
+	    return os;
         
     }
 }
