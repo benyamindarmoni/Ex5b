@@ -66,7 +66,7 @@ int main()
 
         for (auto p : product(range('a', 'c'), range(1.9, 3.9))
             product3 << p << " ";
-      ;
+      
         testcase.setname("Test product")
             .CHECK_OUTPUT(product1.str(), "2,1 3,2 4,3 ")
             .CHECK_OUTPUT(product2.str(), "1.2,3.2 2.2,4.2 ")
