@@ -9,12 +9,12 @@ namespace itertools
     class range
     {
         private:
-        T start;
-        T end; 
+        T s;
+        T e; 
 
         public:
        
-        range(T st, T e) : start(st), end(e)
+        range(T st, T e) : s(st), e(e)
         {}
 
       
@@ -61,13 +61,13 @@ namespace itertools
       
         iterator begin()
         {
-		    return iterator(start);
+		    return iterator(s);
 	    }
 
       
 	    iterator end()
         {
-		    return iterator(end);
+		    return iterator(e);
         }
     };
 }
