@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+using namespace std;
 namespace itertools
 {
     template <typename T1, typename T2>
