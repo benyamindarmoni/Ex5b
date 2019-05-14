@@ -54,12 +54,12 @@ namespace itertools{
         
  iterator begin()
 	{
-		return iterator{&a};
+		return range<T>::iterator(a);
 	}
 
 	iterator end()
 	{
-		return iterator{&b};
+		return range<T>::iterator(b);
 	}
     };
 
