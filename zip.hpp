@@ -55,17 +55,12 @@ namespace itertools
         auto end()
         {
             return iterator <decltype(it1.end()),decltype(it2.end())> (it1.end(), it2.end());;
-        }
-
-        
-
-        
+        }      
     };
     
     template <typename T1,typename T2>
     ostream &operator<<(ostream &os, const std::pair<T1,T2> &c) 
     {
-      os="";
 	    return os;
         
     }
