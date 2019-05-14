@@ -56,21 +56,20 @@ int main()
            
             ;
 //Test product
-        std::ostringstream product1, product2, product3;
+        std::ostringstream product1, product2;
 
-        for (auto p : product(range(2,5), range(1,4)))
+        for (int p : product(range(2,5), range(1,4)))
             product1 << p <<" ";
 
-        for (auto p : product(range(1.2, 3.2), range(3.2, 5.2)))
+        for (double p : product(range(1.2, 3.2), range(3.2, 5.2)))
             product2 << p << " ";
 
-        for (auto p : product(range('a', 'c'), range(1.9, 3.9))
-            product3 << p << " ";
+       
       
         testcase.setname("Test product")
             .CHECK_OUTPUT(product1.str(), "2,1 3,2 4,3 ")
             .CHECK_OUTPUT(product2.str(), "1.2,3.2 2.2,4.2 ")
-            .CHECK_OUTPUT(product3.str(), "a,1.9 b,2.9 ")
+            
         ;
 
         std::ostringstream powerset1, powerset2, powerset3;
