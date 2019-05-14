@@ -88,18 +88,18 @@ int main()
             .CHECK_OUTPUT(powerset1.str(), "{} {1} {2} {1,2} ")
             .CHECK_OUTPUT(powerset2.str(), "{} {1.3} {2.3} {1.3,2.3} ")
             .CHECK_OUTPUT(powerset3.str(), "{} {a} {b} {a,b} {c} {a,c} {b,c} {a,b,c} ")
-         
+         ;
 //Test zip
 
         std::ostringstream zip1, zip2, zip3;
         for (auto p : zip(range(1, 2), range(1, 2)))
-            intZip << p << " ";
-
-        for (auto p : zip(range(1.2, 2.2), range(2.2, 3.2)))
             zip1 << p << " ";
 
-        for (auto p : zip(range('a', 'c'), range('d', 'f')))
+        for (auto p : zip(range(1.2, 2.2), range(2.2, 3.2)))
             zip2 << p << " ";
+
+        for (auto p : zip(range('a', 'c'), range('d', 'f')))
+            zip3 << p << " ";
         testcase.setname("Test zip")
             .CHECK_OUTPUT(zip1.str(), "1,1 ")
             .CHECK_OUTPUT(zip2.str(), "1.2,2.2 ")
