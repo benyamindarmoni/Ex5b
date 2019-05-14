@@ -58,10 +58,10 @@ int main()
 //Test product
         std::ostringstream product1, product2;
 
-        for (int p : product(range(2,5), range(1,4)))
+        for (auto p : product(range(2,5), range(1,4)))
             product1 << p <<" ";
 
-        for (double p : product(range(1.2, 3.2), range(3.2, 5.2)))
+        for (auto p : product(range(1.2, 3.2), range(3.2, 5.2)))
             product2 << p << " ";
 
        
@@ -74,7 +74,7 @@ int main()
 
         std::ostringstream powerset1, powerset2, powerset3;
 
-    //Test powerse
+    //Test powerset
 
         for (auto s : powerset(range(1, 3)))
             powerset1 << s << " ";
