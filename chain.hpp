@@ -1,69 +1,105 @@
-#pragma once
 
 namespace itertools
 {
-    template <typename T1, typename T2>
-
-    class chain 
+template <typename T1, typename T2>
+class chainClass
+{
+public:
+    chainClass(const T1 &a,const T2 &b) : a(a), b(b)
     {
-        private:
-        T1 _it1;
-        T2 _it2; 
-        
-        public:
-        chain(T1 _start, T2 _end) : _it1(_start), _it2(_end)
+    }
+
+private:
+     T1 a;
+     T2 b;
+
+    class iterator
+    {
+
+    private:
+        decltype(a.begin()) beginA;
+        decltype(a.end()) endA;
+        decltype(b.begin()) beginB;
+
+    public:
+        iterator(const decltype(a.begin()) &ptr1,const decltype(a.end()) &ptr2,const decltype(b.begin()) &ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
         {
         }
 
-        template <typename P1, typename P2>
-        class iterator
+        auto &operator*()
         {
-          private:
-            P1 data1; 
-            P2 data2; 
-
-            public:
-          
-            iterator(P1 ptr1, P2 ptr2) : data1(ptr1), data2(ptr2)
-            {
-
+            
+            if(beginA==endA){
+                return *beginB;
             }
-
-            decltype(*data1) operator*() const
-            {
-			    return *data1;
-            }
-
-          
-            iterator& operator++()
-            {
-			    return *this;
-            }
-
-          
-		    bool operator==(iterator<P1,P2> it) const
-            {
-			    return false;
-		    }
-
-           
-		    bool operator!=(iterator<P1,P2> it) const
-            {
-			    return false;
-            }
-        };
-
-        public:
-
-        auto begin()
-        {
-            return iterator <decltype(_it1.begin()),decltype(_it2.begin())> (_it1.begin(), _it2.begin());;
+            return *beginA;
         }
 
-        auto end()
+        // ++i;
+        iterator &operator++()
         {
-            return iterator <decltype(_it1.end()),decltype(_it2.end())> (_it1.end(), _it2.end());;
+            if(beginA == endA){
+                beginB++;
+            }
+            else{
+             beginA++;   
+            }
+            
+
+            return *this;
         }
 
-    };
+        // i++;
+        const iterator operator++(int)
+        {
+            iterator tmp = *this;
+            if(beginA == endA){
+                beginB++;
+            }
+            else{
+              beginA++;  
+            }
+            
+            return tmp;
+        }
+
+        bool operator==(const iterator &rhs) const
+        {
+            if(beginA == endA){
+                return beginB == rhs.beginB;
+            }
+            
+            
+            return beginA == rhs.beginA;
+        }
+
+        bool operator!=(const iterator &rhs) const
+        {
+            if(beginA == endA){
+                return beginB != rhs.beginB;
+            }
+            
+            
+            return beginA != rhs.beginA;
+        }
+    }; // END OF CLASS ITERATOR
+
+public:
+    iterator begin() 
+    {
+        return iterator{a.begin() , a.end(), b.begin()};
+    }
+
+    iterator end() 
+    {
+        return iterator{NULL, NULL, b.end()} ;
+    }
+};
+
+template <typename T1, typename T2>
+chainClass<T1, T2> chain(T1 a, T2 b)
+{
+    return chainClass<T1, T2>{a, b};
 }
+
+};
