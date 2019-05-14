@@ -1,63 +1,60 @@
-#include "iostream"
 #pragma once
-namespace itertools{
-    
-    template<typename x,typename y>
-    class product{
-        protected:
-     x a1;
-     y a2;
+namespace itertools
+{
+    template <typename T1, typename T2>
+    class product 
+    {
+        private:
+        T1 itr1;
+        T2 itr2;
+        
         public:
-        product(x a,y b):a1(a),a2(b){}
-        ~product(){}
-          
-          
-        class iterator{
-            protected:
-          typename x::iterator a;
-            typename y::iterator b;
+        product(T1 a, T2 b) : itr1(a), itr2(b) {
+
+        }
+        
+        template <typename P1, typename P2>
+        class iterator
+        {
+          private:
+            P1 i1;
+            P2 i2;
+
             public:
-            iterator (typename x::iterator itr1, typename y::iterator itr2) : a(itr1),b(itr2){}
-            
-             auto operator*() const {
-                return *a;
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2) {
+
             }
 
-          iterator& operator++()
-		{
-		
-			return *this;
-		}
+            std::pair<decltype(*i1),decltype(*i2)> operator*() const {
 
-           
+             return  std::pair<decltype(*i1),decltype(*i2)> (*i1 , *i2);
+}
 
-            bool operator==(const iterator &i) const {
-                return false;
+            iterator<P1, P2>& operator++() {
+
+			    return *this;
             }
 
-            bool operator!=(const iterator& i) const {
-                return false;
+		    bool operator==(iterator<P1,P2> it) const {
+			    return false;
+		    }
+
+		    bool operator!=(iterator<P1,P2> it) const {
+			    return false;
             }
-               iterator& operator=(const iterator& i)  {
-                 *this;
-                   
-            }
-            
-            
         };
-        
-        
-iterator begin()
-	{
-		return product<x,y>::iterator(a1.begin(),a2.begin());
-	}
 
-iterator end()
-	{
-		return product<x,y>::iterator(a1.end(),a2.end());
-	} 
+        public:
+
+        auto begin()
+        {
+            return iterator <decltype(itr1.begin()),decltype(itr2.begin())> (itr1.begin(), itr2.begin());;
+        }
+
+        auto end()
+        {
+            return iterator <decltype(itr1.end()),decltype(itr2.end())> (itr1.end(), itr2.end());;
+        }
+
     };
-
-   
-    
 }

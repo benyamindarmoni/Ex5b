@@ -1,68 +1,73 @@
-#include "iostream"
 #pragma once
-namespace itertools{
+
+namespace itertools
+{
+
+    template <typename T>
     
-    template<typename T>
-    class range{
-        protected:
-        T a;
-        T b;
+   
+    class range
+    {
+        private:
+        T start;
+        T end; 
+
         public:
-        range(T x,T y):a(x),b(y){}
-        ~range(){}
-        
-  
-        
-        
-        class iterator{
-            protected:
-            T* p;
+       
+        range(T st, T e) : start(st), end(e)
+        {}
+
+      
+        class iterator
+        {
+            private:
+            T ptr; 
+
             public:
-            iterator(T* a=NULL):p(a){}
             
-             T operator*() const {
-                return *p;
+           
+            iterator(T p) : ptr(p)
+            {
+
             }
 
-          iterator& operator++()
-		{
-			++(*p);
-			return *this;
-		}
-
-            const iterator operator++(int) {
-             iterator help = *this;
-			(*p)++;
-			return help;
+          
+            T operator*() const
+            {
+			    return ptr;
             }
 
-            bool operator==(const iterator &i) const {
-                return *p == *i.p;
+          
+            iterator& operator++()
+            {
+                
+			    return *this;
             }
 
-            bool operator!=(const iterator& i) const {
-                return *p != *i.p;
+           
+		    bool operator==(const iterator& rhs) const
+            {
+			    return false;
+		    }
+
+          
+		    bool operator!=(const iterator& rhs) const
+            {
+			    return false;
             }
-               iterator& operator=(const iterator& i)  {
-                   p=i.p;
-                   
-            }
-            
-            
         };
-        
-        
- iterator begin()
-	{
-		return range<T>::iterator(a);
-	}
 
-	iterator end()
-	{
-		return range<T>::iterator(b);
-	}
+        public:
+      
+        iterator begin()
+        {
+		    return iterator(start);
+	    }
+
+      
+	    iterator end()
+        {
+		    return iterator(end);
+        }
     };
-
-    
-    
 }

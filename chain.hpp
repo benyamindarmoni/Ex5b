@@ -1,64 +1,69 @@
-#include "iostream"
-
 #pragma once
-namespace itertools{
-    
-    template<typename x,typename y>
-    class chain{
-        protected:
-         x a1;
-         y a2;
+
+namespace itertools
+{
+    template <typename T1, typename T2>
+
+    class chain 
+    {
+        private:
+        T1 _it1;
+        T2 _it2; 
+        
         public:
-        chain(x b,y e):a1(b),a2(e){}
-        ~chain(){}
-          
-          
-        class iterator{
-            protected:
-          typename x::iterator a;
-            typename y::iterator b;
+        chain(T1 _start, T2 _end) : _it1(_start), _it2(_end)
+        {
+        }
+
+        template <typename P1, typename P2>
+        class iterator
+        {
+          private:
+            P1 data1; 
+            P2 data2; 
+
             public:
-            iterator (typename x::iterator itr1, typename y::iterator itr2) : a(itr1),b(itr2){}
-            
-             auto operator*() const {
-                return *a;
+          
+            iterator(P1 ptr1, P2 ptr2) : data1(ptr1), data2(ptr2)
+            {
+
             }
 
-          iterator& operator++()
-		{
-		
-			return *this;
-		}
+            decltype(*data1) operator*() const
+            {
+			    return *data1;
+            }
+
+          
+            iterator& operator++()
+            {
+			    return *this;
+            }
+
+          
+		    bool operator==(iterator<P1,P2> it) const
+            {
+			    return false;
+		    }
 
            
-
-            bool operator==(const iterator &i) const {
-                return false;
+		    bool operator!=(iterator<P1,P2> it) const
+            {
+			    return false;
             }
-
-            bool operator!=(const iterator& i) const {
-                return false;
-            }
-               iterator& operator=(const iterator& i)  {
-                 *this;
-                   
-            }
-            
-            
         };
-        
-        
-iterator begin()
-	{
-		return chain<x,y>::iterator(a1.begin(),a2.begin());
-	}
 
-iterator end()
-	{
-		return chain<x,y>::iterator(a1.end(),a2.end());
-	} 
+        public:
+
+        auto begin()
+        {
+            return iterator <decltype(_it1.begin()),decltype(_it2.begin())> (_it1.begin(), _it2.begin());;
+        }
+
+        auto end()
+        {
+            return iterator <decltype(_it1.end()),decltype(_it2.end())> (_it1.end(), _it2.end());;
+        }
+
     };
-
-   
-    
 }

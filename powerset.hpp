@@ -1,63 +1,58 @@
-#include "iostream"
 #pragma once
-namespace itertools{
-    
-    template<typename x,typename y>
-    class powerset{
-        protected:
-     x a1;
-     y a2;
+namespace itertools
+{
+    template <typename T>
+    class powerset
+    {
+        private:
+        T ptr;
+
         public:
-        powerset(x b,y e):a1(b),a2(e){}
-        ~powerset(){}
-          
-          
-        class iterator{
-            protected:
-          typename x::iterator a;
-            typename y::iterator b;
+
+        powerset(T a) : ptr(a) {
+
+        }
+        
+        template <typename P>
+        class iterator
+        {
+          private:
+            P i1;
+            P i2;
+
             public:
-            iterator (typename x::iterator itr1, typename y::iterator itr2) : a(itr1),b(itr2){}
+            iterator(P p1, P p2) : i1(p1), i2(p2) {
+
+            }
+
+            std::pair<decltype(*i1),decltype(*i2)> operator*() const {
+
+             return  std::pair<decltype(*i1),decltype(*i2)> (*i1 , *i2);
             
-             auto operator*() const {
-                return *a;
             }
 
-          iterator& operator++()
-		{
-		
-			return *this;
-		}
+            iterator<P>& operator++() {
 
-           
-
-            bool operator==(const iterator &i) const {
-                return false;
+			    return *this;
             }
 
-            bool operator!=(const iterator& i) const {
-                return false;
+		    bool operator==(iterator<P> it) const {
+			    return false;
+		    }
+
+		    bool operator!=(iterator<P> it) const {
+			    return false;
             }
-               iterator& operator=(const iterator& i)  {
-                 *this;
-                   
-            }
-            
-            
         };
-        
-        
-iterator begin()
-	{
-		return powerset<x,y>::iterator(a1.begin(),a2.begin());
-	}
 
-iterator end()
-	{
-		return powerset<x,y>::iterator(a1.end(),a2.end());
-	} 
+        public:
+
+        auto begin() { 
+            return iterator<decltype(ptr.begin())> (ptr.begin(), ptr.end()); 
+        } 
+        auto end()  { 
+            return iterator<decltype(ptr.begin())>(ptr.end(), ptr.end());
+        } 
+
     };
-
-   
-    
 }
