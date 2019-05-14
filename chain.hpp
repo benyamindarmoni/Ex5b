@@ -6,8 +6,8 @@ namespace itertools{
     template<typename x,typename y>
     class chain{
         protected:
-     x a1;
-     y a2;
+         x a1;
+         y a2;
         public:
         chain(x b,y e):a1(b),a2(e){}
         ~chain(){}
@@ -50,12 +50,12 @@ namespace itertools{
         
 iterator begin()
 	{
-		return chain<x,y>::iterator(a1.begin());
+		return chain<x,y>::iterator(a1.begin(),a2.begin());
 	}
 
 iterator end()
 	{
-		return chain<x,y>::iterator(a2.end());
+		return chain<x,y>::iterator(a1.end(),a2.end());
 	} 
     };
 

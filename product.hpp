@@ -49,12 +49,12 @@ namespace itertools{
         
 iterator begin()
 	{
-		return product<x,y>::iterator(a1.begin());
+		return product<x,y>::iterator(a1.begin(),a2.begin());
 	}
 
 iterator end()
 	{
-		return product<x,y>::iterator(a2.end());
+		return product<x,y>::iterator(a1.end(),a2.end());
 	} 
     };
 

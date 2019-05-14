@@ -49,12 +49,12 @@ namespace itertools{
         
 iterator begin()
 	{
-		return powerset<x,y>::iterator(a1.begin());
+		return powerset<x,y>::iterator(a1.begin(),a2.begin());
 	}
 
 iterator end()
 	{
-		return powerset<x,y>::iterator(a2.end());
+		return powerset<x,y>::iterator(a1.end(),a2.end());
 	} 
     };
 
