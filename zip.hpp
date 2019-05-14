@@ -37,11 +37,11 @@ namespace itertools
             }
 
 		    bool operator==(iterator<P1,P2> it) const {
-			    return true;
+			    return false;
 		    }
 
 		    bool operator!=(iterator<P1,P2> it) const {
-			    return true;
+			    return false;
             }
         };
 
