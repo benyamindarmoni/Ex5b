@@ -27,10 +27,11 @@ namespace itertools
 
             }
 
-             std::pair<decltype(*data1),decltype(*data2)> operator*() const {
-
-             return  std::pair<decltype(*data1),decltype(*data2)> (*data1 , *data2);
-}
+      std::pair<decltype(*it1),decltype(*it2)> operator*() const
+        {
+            return std::pair< decltype(*it1),
+                              decltype(*it2)> (*it1,*it2);
+        }
 
             iterator<P1, P2>& operator++() {
 ++data1;
