@@ -29,12 +29,12 @@ namespace itertools
 
             }
 
-            decltype(data1) operator*() 
+            decltype(*data1) operator*() 
             { 
                 if(first_itr)
-                return data1;
+                return *data1;
                 else
-                return data2;
+                return *data2;
 			  
             }
 
