@@ -22,7 +22,7 @@ namespace itertools
           
 
             public:
-            iterator(P1 p1, P2 p2) : i1(p1), i2(p2)) {
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2) {
 
             }
 
