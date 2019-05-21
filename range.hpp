@@ -64,9 +64,9 @@ namespace itertools
 		    return range::iterator(end1);
         }
     };
-    template <typename T>
+ /*   template <typename T>
 
-/*range<T> range(T from, T to)
+range<T> range(T from, T to)
 {
     return range<T>(from, to);
 }*/
