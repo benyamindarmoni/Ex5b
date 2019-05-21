@@ -33,16 +33,18 @@ namespace itertools
 }
 
             iterator<P1, P2>& operator++() {
-
+++data1;
+++data2;
 			    return *this;
             }
 
 		    bool operator==(iterator<P1,P2> it) const {
-			    return false;
+		        
+			    return data1==it.data1&&data2==it.data2;
 		    }
 
 		    bool operator!=(iterator<P1,P2> it) const {
-			    return false;
+			    return  data1!=it.data||data2!=it.data2;;
             }
         };
 
@@ -62,6 +64,8 @@ namespace itertools
     template <typename T1,typename T2>
     ostream &operator<<(ostream &os, const std::pair<T1,T2> &c) 
     {
+        
+          os << c.first << ',' << c.second;
 	    return os;
         
     }

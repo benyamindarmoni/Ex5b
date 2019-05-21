@@ -3,32 +3,26 @@
 namespace itertools
 {
 
-    template <typename T>
-    
-   
+    template <class T>
     class range
     {
         private:
-        T s;
-        T e; 
+        T start;
+        T end1; 
 
         public:
        
-        range(T st, T e) : s(st), e(e)
+        range(T st, T e) : start(st), end1(e)
         {}
 
       
         class iterator
         {
-            private:
-            T ptr; 
-
             public:
-            
+            T ptr; 
            
             iterator(T p) : ptr(p)
             {
-
             }
 
           
@@ -40,20 +34,20 @@ namespace itertools
           
             iterator& operator++()
             {
-                
+                ++ptr;
 			    return *this;
             }
 
            
 		    bool operator==(const iterator& rhs) const
             {
-			    return false;
+			    return this->ptr==rhs.ptr;
 		    }
 
           
 		    bool operator!=(const iterator& rhs) const
             {
-			    return false;
+			      return this->ptr!=rhs.ptr;
             }
         };
 
@@ -61,13 +55,19 @@ namespace itertools
       
         iterator begin()
         {
-		    return iterator(s);
+		    return range::iterator(start);
 	    }
 
       
 	    iterator end()
         {
-		    return iterator(e);
+		    return range::iterator(end1);
         }
     };
+    template <typename T>
+
+range<T> range(T from, T to)
+{
+    return range<T>(from, to);
+}
 }

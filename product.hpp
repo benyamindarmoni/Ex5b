@@ -19,9 +19,10 @@ namespace itertools
           private:
             P1 i1;
             P2 i2;
+            int sum;
 
             public:
-            iterator(P1 p1, P2 p2) : i1(p1), i2(p2) {
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2),sum(itr2.end-itr2.begin) {
 
             }
 
@@ -31,16 +32,20 @@ namespace itertools
 }
 
             iterator<P1, P2>& operator++() {
-
+            i2++;
 			    return *this;
             }
 
 		    bool operator==(iterator<P1,P2> it) const {
-			    return false;
+			    return i1==it.i1&&i2==it.i2;
 		    }
 
 		    bool operator!=(iterator<P1,P2> it) const {
-			    return false;
+		        if(i2==it.i2){
+		            i1++;
+		            i2=itr2.begin();
+		        }
+			    return i1!=it.i1||i2!=it.i2;
             }
         };
 
