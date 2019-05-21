@@ -73,7 +73,7 @@ private:
             return ((num_of_elements - index) != (other.num_of_elements - other.index - 1));
         }
 
-        auto operator*() const
+        auto operator*() 
         {
             E _element_iterator = _element_iterator_begin;
             std::vector<typename std::remove_const<typename std::remove_reference<decltype(*_element_iterator_begin)>::type>::type> S;
