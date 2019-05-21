@@ -103,8 +103,8 @@ private:
 
 public:
     _powerset(T from) : _from(from) {}                                                                                                              // constructor
-    auto begin() const { return _powerset::iterator<decltype(_from.begin())>(_from.begin(), _from.end()); } 
-    auto end() const { return _powerset::iterator<decltype(_from.begin())>(_from.end(), _from.end()); }      
+    auto begin()  { return _powerset::iterator<decltype(_from.begin())>(_from.begin(), _from.end()); } 
+    auto end()  { return _powerset::iterator<decltype(_from.begin())>(_from.end(), _from.end()); }      
 };                                                                                                                                                  // class
 
 template <typename T>
