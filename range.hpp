@@ -39,13 +39,13 @@ namespace itertools
             }
 
            
-		    bool operator==(const iterator& rhs) const
+		    bool operator==(const iterator& rhs) 
             {
 			    return this->ptr==rhs.ptr;
 		    }
 
           
-		    bool operator!=(const iterator& rhs) const
+		    bool operator!=(const iterator& rhs) 
             {
 			      return this->ptr!=rhs.ptr;
             }
