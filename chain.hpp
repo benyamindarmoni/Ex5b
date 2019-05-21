@@ -50,7 +50,7 @@ namespace itertools
             }
 
           
-		    bool operator==(iterator<P1,P2> it) const
+		    bool operator==(iterator<P1,P2> it) 
             {
 			    return data1==it.data1&&data2==it.data2;
 		    }
