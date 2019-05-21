@@ -53,13 +53,13 @@ namespace itertools
 
         public:
       
-        iterator begin()
+        iterator begin ()const
         {
 		    return range::iterator(start);
 	    }
 
       
-	    iterator end()
+	    iterator end()const
         {
 		    return range::iterator(end1);
         }
