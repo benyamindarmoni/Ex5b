@@ -68,7 +68,7 @@ private:
         }
 
         // operators
-        bool operator!=(_powerset::iterator<E> const &other) const
+        bool operator!=(_powerset::iterator<E> const &other) 
         {
             return ((num_of_elements - index) != (other.num_of_elements - other.index - 1));
         }
