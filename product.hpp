@@ -32,7 +32,7 @@ namespace itertools
 }
 
             iterator<P1, P2>& operator++() {
-            i2++;
+            ++i2;
 			    return *this;
             }
 
@@ -42,7 +42,7 @@ namespace itertools
 
 		    bool operator!=(iterator<P1,P2> it)  {
 		        if(i2==it.i2){
-		            i1++;
+		            ++i1;
 		            i2=help;
 		        }
 			    return i1!=it.i1||i2!=it.i2;
