@@ -19,10 +19,10 @@ namespace itertools
           private:
             P1 i1;
             P2 i2;
-            int sum;
+          
 
             public:
-            iterator(P1 p1, P2 p2) : i1(p1), i2(p2),sum(itr2.end-itr2.begin) {
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2)) {
 
             }
 
