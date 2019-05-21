@@ -56,7 +56,7 @@ namespace itertools
 		    }
 
            
-		    bool operator!=(iterator<P1,P2> it) const
+		    bool operator!=(iterator<P1,P2> it) 
             {
                 if(first_itr&&this->data1==it.data1)first_itr=false;
 			     return data1!=it.data1||data2!=it.data2;
