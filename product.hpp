@@ -36,11 +36,11 @@ namespace itertools
 			    return *this;
             }
 
-		    bool operator==(iterator<P1,P2> it) const {
+		    bool operator==(iterator<P1,P2> it)  {
 			    return i1==it.i1&&i2==it.i2;
 		    }
 
-		    bool operator!=(iterator<P1,P2> it) const {
+		    bool operator!=(iterator<P1,P2> it)  {
 		        if(i2==it.i2){
 		            i1++;
 		            i2=help;
