@@ -68,12 +68,12 @@ namespace itertools
 
         public:
 
-        auto begin()
+        auto begin()const
         {
             return iterator <decltype(type1.begin()),decltype(type2.begin())> (type1.begin(), type2.begin());;
         }
 
-        auto end()
+        auto end()const
         {
             return iterator <decltype(type1.end()),decltype(type2.end())> (type1.end(), type2.end());;
         }
