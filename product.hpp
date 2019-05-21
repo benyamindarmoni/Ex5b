@@ -18,11 +18,11 @@ namespace itertools
         {
           private:
             P1 i1;
+            P1 help;
             P2 i2;
-          
 
             public:
-            iterator(P1 p1, P2 p2) : i1(p1), i2(p2) {
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2),help(p1) {
 
             }
 
@@ -43,7 +43,7 @@ namespace itertools
 		    bool operator!=(iterator<P1,P2> it) const {
 		        if(i2==it.i2){
 		            i1++;
-		            i2=itr2.begin();
+		            i2=help;
 		        }
 			    return i1!=it.i1||i2!=it.i2;
             }
