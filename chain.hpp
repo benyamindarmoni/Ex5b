@@ -29,7 +29,7 @@ namespace itertools
 
             }
 
-            decltype(*data1) operator*() const
+            decltype(*data1) operator*() 
             { 
                 if(first_itr)
                 return *data1;
