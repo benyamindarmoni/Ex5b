@@ -26,26 +26,27 @@ namespace itertools
 
             }
 
-            std::pair<decltype(*i1),decltype(*i2)> operator*() const {
-
-             return  std::pair<decltype(*i1),decltype(*i2)> (*i1 , *i2);
-}
 
             iterator<P1, P2>& operator++() {
             ++i2;
 			    return *this;
             }
+		
+            std::pair<decltype(*i1),decltype(*i2)> operator*() const {
 
-		    bool operator==(iterator<P1,P2> it)  {
-			    return i1==it.i1&&i2==it.i2;
-		    }
+             return  std::pair<decltype(*i1),decltype(*i2)> (*i1 , *i2);
+}
 
-		    bool operator!=(iterator<P1,P2> it)  {
-		        if(i2==it.i2){
-		            ++i1;
-		            i2=help;
-		        }
-			    return i1!=it.i1||i2!=it.i2;
+		   
+
+		   bool operator!=(iterator<P1,P2> itera)
+            {
+                if (!(i2 != itera.i2)) 
+                {
+                    ++i1;
+                    i2 = help; 
+                }
+			    return ((i1 != itera.i1) && (i2 != itera.i2)); 
             }
         };
 
