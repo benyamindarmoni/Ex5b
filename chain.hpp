@@ -39,7 +39,7 @@ namespace itertools
             }
 
           
-            iterator& operator++()
+            iterator<P1, P2>& operator++()
             {
                 
                 if(first_itr)
@@ -50,20 +50,21 @@ namespace itertools
             }
 
           
-		    bool operator==(iterator<P1,P2> it) 
-            {
-			    return data1==it.data1&&data2==it.data2;
-		    }
 
-           
-		    bool operator!=(iterator<P1,P2> it) 
+            bool operator!=(iterator<P1,P2> itera)
             {
-                if(first_itr&&this->data1==it.data1){
-			
-			first_itr=false;
-		}
-			     return data1!=it.data1||data2!=it.data2;
+                if (first_itr && !(data1 != itera.data1))
+                {
+                    first_itr = false;
+                }
+                if (first_itr)
+                {
+                    return (data1 != itera.data1); 
+                }
+                return (data2 != itera.data2); //If the iterator is in the second word.
             }
+        
+		
         };
 
         public:
