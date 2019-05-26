@@ -39,13 +39,10 @@ namespace itertools
 			    return *this;
             }
 
-		    bool operator==(iterator<P1,P2> it)  {
-		        
-			    return data1==it.data1&&data2==it.data2;
-		    }
 
-		    bool operator!=(iterator<P1,P2> it)  {
-			    return  data1!=it.data1||data2!=it.data2;;
+		       bool operator!=(iterator<P1,P2> itera)
+            {
+			    return (data1 != itera.data1); 
             }
         };
 
