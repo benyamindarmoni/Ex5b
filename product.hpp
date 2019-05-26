@@ -18,11 +18,11 @@ namespace itertools
         {
           private:
             P1 i1;
-            P1 help;
+            P2 help;
             P2 i2;
 
             public:
-            iterator(P1 p1, P2 p2) : i1(p1), i2(p2),help(p1) {
+            iterator(P1 p1, P2 p2) : i1(p1), i2(p2),help(p2) {
 
             }
 
